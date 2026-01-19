@@ -1,21 +1,21 @@
 # Adult Autism Classification — Machine Learning Evaluation Project
 
-Educational machine learning project focused on **data preprocessing, signal/feature ranking,
+Educational machine learning project focused on **data preprocessing, feature analysis,
 model comparison, and offline evaluation** using the Adult Autism Screening Dataset.
 
 > This project is **not intended for clinical use**.  
-> It is an academic project designed to study ML evaluation and trade-offs on a real-world dataset.
+> It is an academic course project aimed at analyzing and comparing different
+machine learning approaches on a real-world dataset.
 
 ---
 
 ## Project Focus
 
 The goal of this project was not to build a production medical system, but to:
-- design a clean ML pipeline
-- compare multiple modeling approaches
-- analyze **feature relevance**
-- reason about **metric trade-offs** (precision vs recall vs specificity)
-
+- design and document a complete ML pipeline
+- compare multiple classification approaches
+- analyze feature relevance using statistical measures
+- study the impact of model complexity and regularization on performance metrics
 
 ---
 
@@ -37,24 +37,25 @@ The goal of this project was not to build a production medical system, but to:
 ## Implemented Models
 
 ### k-Nearest Neighbors (kNN)
-- Used as a strong non-parametric baseline
-- High interpretability
-- Strong specificity, useful when false positives are costly
+- Non-parametric baseline classifier
+- Parameter selection performed by optimizing classification accuracy
+- Achieves high specificity, with lower sensitivity depending on the choice of *k*
 
 ### Linear Discriminant Analysis + Gaussian Classifier
-- Dimensionality reduction + probabilistic modeling
-- Efficient and interpretable baseline
-- Useful when compute or latency is constrained
+- Linear dimensionality reduction followed by probabilistic classification
+- Computationally efficient and interpretable
+- Exhibits high sensitivity with lower precision compared to other methods
 
 ### Neural Networks (PyTorch)
-- Multiple architectures explored:
-  - underfitted
-  - overfitted
-  - regularized (dropout, L2, early stopping)
-- Used to study:
-  - capacity vs generalization
-  - regularization effects
-  - early stopping as an implicit ranking constraint
+- Fully connected feed-forward architectures
+- Multiple configurations explored:
+  - underfitted networks
+  - overfitted networks
+  - regularized networks (dropout, L2 regularization, early stopping)
+- Used to analyze:
+  - the effect of model capacity
+  - overfitting behavior
+  - the impact of regularization techniques
 
 ---
 
@@ -66,30 +67,30 @@ The goal of this project was not to build a production medical system, but to:
   - recall (sensitivity)
   - specificity
   - F1 score
-- Models compared under the same preprocessing pipeline
-- Overfitting analyzed via training/validation behavior
+- All models evaluated under the same preprocessing pipeline
+- Overfitting analyzed through training and validation loss behavior
 
-> Results vary slightly depending on split and regularization strategy.  
-> Full experimental details are provided in the report.
+> Reported results correspond to the evaluation protocol described in the report.
+Minor variations may occur depending on model configuration.
 
 ---
 
 ## Key Takeaways
 
-- The dataset exhibits a strong, deterministic relationship between input features and labels,
-  making the classification task highly separable.
+- The dataset exhibits a strong deterministic relationship between input features and labels,
+  resulting from the way the ground truth is constructed.
 
-- In this setting, overfitting does not necessarily indicate poor generalization, as the same
+- In this context, overfitting does not necessarily imply poor generalization, since the same
   underlying rule applies across the entire dataset.
 
-- Different models primarily differ in the balance between sensitivity and specificity,
-  rather than their ability to learn the decision boundary.
+- Differences between models are primarily reflected in the trade-off between sensitivity
+  and specificity, rather than in their ability to learn the decision boundary.
 
-- Simpler models (LDA, kNN) remain competitive and offer advantages in interpretability
-  and computational efficiency.
+- Simpler models such as LDA and kNN remain competitive, offering advantages in
+  interpretability and computational efficiency.
 
-- The main limitation of the project is the dataset itself: labels are derived from a screening
-  questionnaire rather than clinical diagnosis, limiting real-world applicability.
+- The main limitation of the project lies in the dataset itself: labels are derived from a
+  screening questionnaire rather than clinical diagnosis, which limits real-world applicability.
 
 ---
 
@@ -98,8 +99,8 @@ The goal of this project was not to build a production medical system, but to:
 This repository documents a **course project**.
 To avoid enabling copy-paste solutions for future students:
 - The dataset is not included
-- The repository documents the project and its results, rather than providing a ready-to-run solution.
-
+- The repository focuses on documenting methodology and results rather than providing
+  a fully runnable end-to-end solution
 
 A detailed experimental report is provided for transparency.
 
@@ -114,4 +115,4 @@ A detailed experimental report is provided for transparency.
 ## Contributors
 
 - **Milica Gojak**
-- **Vladan Bašić** 
+- **Vladan Bašić**
