@@ -107,7 +107,7 @@ A detailed experimental report is provided for transparency.
 
 ## Report
 
-📄 `report/ASD_Classification_Experimental_Report.pdf`
+📄 `ASD_Classification_Experimental_Report.pdf`
 
 ---
 
